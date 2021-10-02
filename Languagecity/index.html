@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="stylesheet" href="index.css">
+
+  <title>Languagecity</title>
+  <style>
+    .link-a{
+    color: white;
+    text-decoration: none;
+    background-color: transparent;
+}
+.link-a:hover {
+  color:white;
+  background-color: transparent;
+  text-decoration: none;
+}
+  </style>
+
+  <script type="text/javascript">
+    function userSignup() {
+     
+
+     var userName=document.getElementById("signupExampleInputEmail1").value;
+     var password=document.getElementById("signupexampleInputPassword1").value;
+     
+     // already created user
+     var alreadyUser=sessionStorage.getItem(userName);
+     if(alreadyUser!=null)
+     {
+      alert("User "+userName +" already exist.");
+      return ;
+     }
+
+     // Store
+     sessionStorage.setItem(userName, password);
+     alert("account created successfully");
+     
+    }
+
+    function loginUser()
+    {
+      var userName=document.getElementById("exampleInputEmail1").value;
+      var passwordTxt=document.getElementById("exampleInputPassword1").value;
+      var sessionPassword=sessionStorage.getItem(userName);
+      
+      if (sessionPassword!=passwordTxt)
+      {
+        alert("You are not authorized user.");
+        //return false;
+      }
+      else
+      {
+        alert("Welcome back ! " +userName);
+        //return true;
+      }
+
+    }
+
+    </script>
+
+
+
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="About.html">Blogs</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Downloads
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="pdf/html.pdf">HTML</a>
+            <a class="dropdown-item" href="pdf/css.pdf">CSS</a>
+            <a class="dropdown-item" href="pdf/c.pdf">C programming</a>
+            <a class="dropdown-item" href="pdf/Python.pdf">PYTHON</a>
+            <a class="dropdown-item" href="pdf/PHP.pdf">PHP</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="Contact.html">Contact Us</a>
+        </li>
+
+
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Search</button>
+      </form>
+      <div class="mx-2">
+        <button class="btn btn-danger" data-toggle="modal" data-target="#LoginModal">Login</button>
+        <button class="btn btn-danger" data-toggle="modal" data-target="#SignUpModal">SignUp</button>
+      </div>
+    </div>
+  </nav>
+
+
+
+  <!-- Login-->
+  <div class="modal fade" id="LoginModal" tabindex="-1" aria-labelledby="LoginModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Login to coder</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Email address</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Password</label>
+              <input type="password" class="form-control" id="exampleInputPassword1">
+            </div>
+            <div class="form-group form-check">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+              <label class="form-check-label" for="exampleCheck1">Check me out</label>
+            </div>
+            <button type="submit" class="btn btn-primary" onclick="loginUser()">Login</button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- SignUp Modal -->
+  <div class="modal fade" id="SignUpModal" tabindex="-1" aria-labelledby="SignUpModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Get an account</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+
+          <form>
+            <div class="form-group">
+              <label for="signupExampleInputEmail1">Email address</label>
+              <input type="email" class="form-control" id="signupExampleInputEmail1" aria-describedby="emailHelp">
+              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+            <div class="form-group">
+              <label for="signupexampleInputPassword1">Password</label>
+              <input type="password" class="form-control" id="signupexampleInputPassword1">
+            </div>
+            <div class="form-group">
+              <label for="cexampleInputPassword1">Confirm Password</label>
+              <input type="password" class="form-control" id="cexampleInputPassword1">
+            </div>
+            <button type="submit" class="btn btn-primary" onclick="userSignup()">create account</button>
+          </form>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+         
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+      <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="images/1.jpg" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+          <h2>Welcome to the world of programming</h2>
+          <p>New vision.</p>
+          <button class="btn btn-danger"><a href="https://www.codewithharry.com/videos/python-tutorials-for-absolute-beginners-0" class="link-a">Python for beg.</a></button>
+          <button class="btn btn-primary"><a href="https://www.codewithharry.com/videos/web-development-in-hindi-1" class="link-a">Web development</a></button>
+          <button class="btn btn-success"><a href="https://www.codewithharry.com/videos/c-language-tutorials-in-hindi-1" class="link-a">C programming</a></button>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="images/2.jpg" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+          <h2>Best coding blog</h2>
+          <p>Be ready for the codes</p>
+          <button class="btn btn-danger"><a href="https://www.codewithharry.com/videos/cpp-tutorials-in-hindi-1" class="link-a">C++</a></button>
+          <button class="btn btn-primary"><a href="https://www.codewithharry.com/videos/android-tutorials-in-hindi-1" class="link-a">Android development</a></button>
+          <button class="btn btn-success"><a href="https://www.codewithharry.com/videos/git-tut-beginners-hindi-1" class="link-a">Github tutorial</a></button>
+          
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="images/3.jpg" class="d-block w-100" alt="more">
+        <div class="carousel-caption d-none d-md-block">
+          <h5 style=color:rgb(27,7,7);font-size:20px;>Special thanks to https://www.codewithharry.com/ for videos tutorials</h5>
+          <p>Logic preparation.</p>
+          <button class="btn btn-danger"><a href="https://www.codewithharry.com/videos/ml-tutorials-in-hindi-1" class="link-a">Machine learning</a></button>
+          <button class="btn btn-primary"><a href="https://www.codewithharry.com/videos/python-django-tutorials-hindi-0" class="link-a">Python Django</a></button>
+          <button class="btn btn-success"><a href="https://www.codewithharry.com/videos/java-tutorials-for-beginners-1" class="link-a">Java tutorials</a></button>
+        </div>
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+  <div class="container my-4">
+    <div class="row mb-2">
+      <div class="col-md-6">
+        <div
+          class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+          <div class="col p-4 d-flex flex-column position-static">
+            <strong class="d-inline-block mb-2 text-primary">World</strong>
+            <h3 class="mb-0">HTML</h3>
+            <div class="mb-1 text-muted">Nov 12</div>
+            <p class="card-text mb-auto">HTML is the standard markup language for Web pages.
+              With HTML you can create your own Website.         
+              HTML is easy to learn 
+              additional content.</p>
+            <a href="https://www.w3schools.com/html/default.asp" class="stretched-link">Continue reading</a>
+          </div>
+          <div class="col-auto d-none d-lg-block">
+            <img class="bd-placeholder-img" width="200" height="250"
+              src="images/10.jpg" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div
+          class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+          <div class="col p-4 d-flex flex-column position-static">
+            <strong class="d-inline-block mb-2 text-warning">Learn CSS</strong>
+            <h3 class="mb-0">Learn CSS</h3>
+            <div class="mb-1 text-muted">Nov 11</div>
+            <p class="mb-auto">CSS is the language we use to style an HTML document.
+              CSS describes how HTML elements should be displayed.         
+              This tutorial will teach you CSS from basic to advanced.
+            </p>
+            <a href="https://www.w3schools.com/css/default.asp" class="stretched-link">Continue reading</a>
+          </div>
+          <div class="col-auto d-none d-lg-block">
+            <img class="bd-placeholder-img" width="200" height="250"
+              src="images/11.jpg" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row mb-2">
+    <div class="col-md-6">
+      <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+          <strong class="d-inline-block mb-2 text-danger">Learn Python</strong>
+          <h3 class="mb-0">The Python</h3>
+          <div class="mb-1 text-muted">Nov 12</div>
+          <p class="card-text mb-auto">Python is an easy to learn, powerful programming language. 
+            It has efficient high-level data structures and a simple but effective approach to object-oriented programming.
+             Python’s elegant syntax and dynamic typing, together with its interpreted nature, 
+             make it an ideal language for scripting and rapid application development in many areas on most platforms.
+        </p>
+          <a href="https://www.w3schools.com/python/default.asp" class="stretched-link">Continue reading</a>
+        </div>
+        <div class="col-auto d-none d-lg-block">
+          <img class="bd-placeholder-img" width="200" height="250"
+            src="images/9.jpg" alt="">
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+          <strong class="d-inline-block mb-2 text-success">Learn Hacking</strong>
+          <h3 class="mb-0">COMPLETE ETHICAL HACKING BOOTCAMP 2021</h3>
+          <div class="mb-1 text-muted">Nov 11</div>
+          <p class="mb-auto">
+            <ul>
+              <li>Learn Ethical Hacking Bootcamp 2021 from scratch & All 5 phases of Penetration Testing</li>
+              <li>Learn Python from scratch so you are able to write your own tools for Ethical Hacking Bootcamp 2021
+              </li>
+            </ul>
+          </p>
+          <a href="https://www.freetutorialsus.com/complete-ethical-hacking-bootcamp-2021-zero-to-mastery-udemy/" class="stretched-link">Continue reading</a>
+        </div>
+        <div class="col-auto d-none d-lg-block">
+          <img class="bd-placeholder-img" width="200" height="250"
+            src="images/8.jpg" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="col-md-6">
+    <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+      <div class="col p-4 d-flex flex-column position-static">
+        <h3 class="mb-0">8 Best Keyboards for Programming in India 2020</h3>
+        <div class="mb-1 text-muted">Nov 11</div>
+        <p class="mb-auto">
+          For a lot of programmers, finding a decent keyboard will significantly boost their workflow environment.
+           Here, in this article, you’ll find a list of best keyboards for programming and a strait-laced comparison between them.
+        </p>
+        <a href="https://www.thecrazyprogrammer.com/2020/09/best-keyboards-for-programming-in-india.html" class="stretched-link">Continue reading</a>
+      </div>
+      <div class="col-auto d-none d-lg-block">
+        <img class="bd-placeholder-img" width="200" height="250"
+          src="images/12.jpg" alt="">
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+  <footer class="container">
+    <p class="float-right"><a href="#">Back to top</a></p>
+    <p>© 2020-2021 <span style=color:red>N & A</span> Pvt. ltd.</p>· <a href="#">Privacy</a> · <a href="#">Terms</a></p>
+  </footer>
+
+
+  <!-- Optional JavaScript; choose one of the two! -->
+
+  <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+    crossorigin="anonymous"></script>
+
+  <!-- Option 2: jQuery, Popper.js, and Bootstrap JS
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+    -->
+</body>
+
+</html>
